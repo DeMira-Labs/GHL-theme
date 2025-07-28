@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional AI-Powered GoHighLevel Theme & Script Customizer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for the tool's UI -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins&family=Raleway&family=Roboto&family=Montserrat&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+        }
+        .control-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #475569; /* slate-600 */
+            font-size: 0.875rem;
+        }
+        .control-group input[type="color"] {
+            width: 100%;
+            height: 40px;
+            border: 1px solid #cbd5e1; /* slate-300 */
+            border-radius: 0.375rem;
+            cursor: pointer;
+            -webkit-appearance: none;
+            moz-appearance: none;
+            appearance: none;
+            background-color: transparent;
+            padding: 0;
+        }
+        .control-group input[type="color"]::-webkit-color-swatch-wrapper { padding: 0; }
+        .control-group input[type="color"]::-webkit-color-swatch { border: none; border-radius: 0.375rem; }
+        .control-group input, .control-group select, .control-group textarea {
+             width: 100%;
+             padding: 0.5rem 0.75rem;
+             border: 1px solid #cbd5e1;
+             border-radius: 0.375rem;
+             font-size: 0.875rem;
+        }
+        #cssOutput, #jsOutput {
+            height: 500px;
+            white-space: pre;
+            overflow-wrap: normal;
+            overflow-x: auto;
+        }
+        .tab-button {
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+        .tab-button.active {
+            border-color: #3b82f6; /* blue-600 */
+            color: #3b82f6;
+        }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .modal-backdrop {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); z-index: 50;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .modal-content {
+            background-color: white; padding: 2rem; border-radius: 0.75rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            max-width: 90%; width: 500px; text-align: center;
+        }
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1); width: 36px; height: 36px;
+            border-radius: 50%; border-left-color: #3b82f6;
+            animation: spin 1s ease infinite; margin: 0 auto 1rem;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="container mx-auto p-4 md:p-8">
+        
+        <header class="text-center mb-8">
+            <h1 class="text-3xl md:text-4xl font-bold text-slate-800">Professional AI Theme & Script Customizer</h1>
+            <p class="mt-2 text-slate-600">Generate advanced CSS and JS for your GoHighLevel account.</p>
+        </header>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+            <!-- Controls Column -->
+            <div class="lg:col-span-5 space-y-6">
+                <!-- AI Generators -->
+                <div class="bg-white p-6 rounded-xl shadow-md space-y-8">
+                    <div>
+                        <h2 class="text-xl font-semibold text-slate-700 mb-3">✨ AI Theme Generator</h2>
+                        <div class="space-y-4">
+                            <div class="control-group">
+                                <label for="aiUrl">Analyze Website URL (Optional)</label>
+                                <input type="url" id="aiUrl" placeholder="e.g., https://gohighlevel.com" class="w-full">
+                            </div>
+                            <div class="control-group">
+                                <label for="aiPrompt">Refine with a Text Prompt (Optional)</label>
+                                <input type="text" id="aiPrompt" placeholder="e.g., 'Make it darker and more professional'" class="w-full">
+                            </div>
+                        </div>
+                        <button id="generateThemeButton" class="mt-4 w-full bg-blue-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700 transition-all flex items-center justify-center space-x-2">
+                            <span>Generate Theme with AI</span>
+                        </button>
+                    </div>
+                    <hr/>
+                    <div>
+                        <h2 class="text-xl font-semibold text-slate-700 mb-3">🚀 AI Script Generator</h2>
+                        <div class="space-y-4">
+                            <div class="control-group">
+                                <label for="scriptType">Select Script Type</label>
+                                <select id="scriptType">
+                                    <option value="welcomePopup">Welcome Popup</option>
+                                    <option value="customButton">Add Custom Button</option>
+                                    <option value="hideMenuItems">Hide Menu Items</option>
+                                    <option value="fbPixel">Track Facebook Conversion</option>
+                                    <option value="liveChat">Add Live Chat Widget</option>
+                                    <option value="exitIntent">Exit-Intent Popup</option>
+                                </select>
+                            </div>
+                            <div id="scriptOptions"></div>
+                        </div>
+                         <button id="generateScriptButton" class="mt-4 w-full bg-purple-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-purple-700 transition-all flex items-center justify-center space-x-2">
+                            <span>Generate JS with AI</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Manual Controls Section -->
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <button id="exportJsonButton" class="w-full bg-slate-500 text-white font-semibold py-2 px-4 rounded-lg hover:bg-slate-600 transition-colors flex items-center justify-center space-x-2 text-sm"><span>Export JSON</span></button>
+                        <button id="importJsonButton" class="w-full bg-slate-500 text-white font-semibold py-2 px-4 rounded-lg hover:bg-slate-600 transition-colors flex items-center justify-center space-x-2 text-sm"><span>Import JSON</span></button>
+                        <input type="file" id="jsonFileInput" class="hidden" accept=".json">
+                    </div>
+                    <div class="border-b border-gray-200 mt-6">
+                        <nav class="flex flex-wrap" aria-label="Tabs">
+                            <button class="tab-button active font-medium text-sm py-2 px-2" data-tab="brandColors">Brand Colors</button>
+                            <button class="tab-button font-medium text-sm py-2 px-2" data-tab="bgColors">BG Colors</button>
+                            <button class="tab-button font-medium text-sm py-2 px-2" data-tab="textColors">Text Colors</button>
+                            <button class="tab-button font-medium text-sm py-2 px-2" data-tab="menuText">Menu Text</button>
+                            <button class="tab-button font-medium text-sm py-2 px-2" data-tab="menuIcons">Menu Icons</button>
+                        </nav>
+                    </div>
+                    <div id="tab-content-container" class="mt-4">
+                        <div id="brandColors" class="tab-content active grid grid-cols-2 md:grid-cols-3 gap-4"></div>
+                        <div id="bgColors" class="tab-content grid grid-cols-2 md:grid-cols-3 gap-4"></div>
+                        <div id="textColors" class="tab-content grid grid-cols-2 md:grid-cols-3 gap-4"></div>
+                        <div id="menuText" class="tab-content grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+                        <div id="menuIcons" class="tab-content grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Code Output Column -->
+            <div class="lg:col-span-7 space-y-6">
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-lg font-semibold text-slate-700">Generated Custom CSS</h3>
+                        <button id="copyCssButton" class="bg-blue-100 text-blue-700 font-semibold py-1 px-3 rounded-md hover:bg-blue-200 transition-colors text-sm">Copy CSS</button>
+                    </div>
+                    <textarea id="cssOutput" class="w-full p-4 font-mono text-sm bg-slate-900 text-slate-100 rounded-lg border border-slate-700" readonly></textarea>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-lg font-semibold text-slate-700">Generated Custom JS</h3>
+                        <button id="copyJsButton" class="bg-purple-100 text-purple-700 font-semibold py-1 px-3 rounded-md hover:bg-purple-200 transition-colors text-sm">Copy JS</button>
+                    </div>
+                    <textarea id="jsOutput" class="w-full p-4 font-mono text-sm bg-slate-900 text-slate-100 rounded-lg border border-slate-700" readonly></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="messageModal" class="modal-backdrop hidden"><div class="modal-content"><div id="modalSpinner" class="spinner"></div><h3 id="modalTitle" class="text-xl font-semibold text-slate-800 mb-2"></h3><p id="modalMessage" class="text-slate-600"></p><button id="modalCloseButton" class="mt-6 bg-blue-600 text-white font-semibold py-2 px-6 rounded-lg hover:bg-blue-700 hidden">Close</button></div></div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+        // --- Configuration object matching the user's provided JSON structure ---
+        const THEME_CONFIG = {
+            brand_logo: { type: 'text', default: 'https://res.cloudinary.com/dn3mdxebf/image/upload/v1745646079/AutoGenCRM_k4fbya.png', label: 'Brand Logo URL', group: 'brandColors' },
+            brand_primaryColor: { type: 'color', default: '#2b2d42', label: 'Primary', group: 'brandColors' },
+            brand_secondaryColor: { type: 'color', default: '#e8e8e8', label: 'Secondary', group: 'brandColors' },
+            brand_accentColor: { type: 'color', default: '#42476b', label: 'Accent', group: 'brandColors' },
+            
+            bgColor_topbar: { type: 'color', default: '#2b2d42', label: 'Topbar', group: 'bgColors' },
+            bgColor_sidebar: { type: 'color', default: '#2b2d42', label: 'Sidebar', group: 'bgColors' },
+            bgColor_menuHover: { type: 'color', default: '#3a3e5a', label: 'Menu Hover', group: 'bgColors' },
+            bgColor_menuActive: { type: 'color', default: '#ffb547', label: 'Menu Active', group: 'bgColors' },
+            bgColor_bottomToggle: { type: 'color', default: '#565c8f', label: 'Bottom Toggle', group: 'bgColors' },
+            bgColor_cardHeader: { type: 'color', default: '#3a3e5a', label: 'Card Header', group: 'bgColors' },
+            bgColor_cardBackground: { type: 'color', default: '#ffffff', label: 'Card Body', group: 'bgColors' },
+            
+            textColor_topbar: { type: 'color', default: '#ffffff', label: 'Topbar', group: 'textColors' },
+            textColor_topbarIcon: { type: 'color', default: '#ffffff', label: 'Topbar Icon', group: 'textColors' },
+            textColor_menu: { type: 'color', default: '#ffffff', label: 'Menu', group: 'textColors' },
+            textColor_cardHeader: { type: 'color', default: '#ffffff', label: 'Card Header', group: 'textColors' },
+            textColor_cardIcon: { type: 'color', default: '#ffffff', label: 'Card Icon', group: 'textColors' },
+            textColor_dashboardIcon: { type: 'color', default: '#83878f', label: 'Dashboard Icon', group: 'textColors' },
+            
+            menuText_launchPad: { type: 'text', default: 'Launch Pad', label: 'Launch Pad', group: 'menuText' },
+            menuText_dashboard: { type: 'text', default: 'Dashboard', label: 'Dashboard', group: 'menuText' },
+            menuText_conversations: { type: 'text', default: 'Conversations', label: 'Conversations', group: 'menuText' },
+            menuText_calendar: { type: 'text', default: 'Calendar', label: 'Calendar', group: 'menuText' },
+            menuText_contacts: { type: 'text', default: 'Contacts', label: 'Contacts', group: 'menuText' },
+            menuText_opportunities: { type: 'text', default: 'Opportunities', label: 'Opportunities', group: 'menuText' },
+            menuText_payments: { type: 'text', default: 'Payments', label: 'Payments', group: 'menuText' },
+            menuText_AiAgents: { type: 'text', default: 'AI Agents', label: 'AI Agents', group: 'menuText' },
+            menuText_marketing: { type: 'text', default: 'Marketing', label: 'Marketing', group: 'menuText' },
+            menuText_automations: { type: 'text', default: 'Automations', label: 'Automations', group: 'menuText' },
+            menuText_sites: { type: 'text', default: 'Sites', label: 'Sites', group: 'menuText' },
+            menuText_memberships: { type: 'text', default: 'Memberships', label: 'Memberships', group: 'menuText' },
+            menuText_mediaStorage: { type: 'text', default: 'Media Storage', label: 'Media Storage', group: 'menuText' },
+            menuText_reputation: { type: 'text', default: 'Reputation', label: 'Reputation', group: 'menuText' },
+            menuText_reporting: { type: 'text', default: 'Reporting', label: 'Reporting', group: 'menuText' },
+            menuText_appMarketplace: { type: 'text', default: 'App Marketplace', label: 'App Marketplace', group: 'menuText' },
+            menuText_mobileApp: { type: 'text', default: 'Mobile App', label: 'Mobile App', group: 'menuText' },
+            menuText_settings: { type: 'text', default: 'Settings', label: 'Settings', group: 'menuText' },
+            
+            menuIcon_launchPad: { type: 'text', default: 'https://res.cloudinary.com/dn3mdxebf/image/upload/v1745636990/RocketLaunch_tnxjuq.png', label: 'Launch Pad Icon', group: 'menuIcons' },
+            menuIcon_dashboard: { type: 'text', default: 'https://res.cloudinary.com/dn3mdxebf/image/upload/v1745636988/ChartDonut_xvomxc.png', label: 'Dashboard Icon', group: 'menuIcons' },
+            menuIcon_conversations: { type: 'text', default: 'https://res.cloudinary.com/dn3mdxebf/image/upload/v1745636989/Chats_evuom2.png', label: 'Conversations Icon', group: 'menuIcons' },
+            menuIcon_calendar: { type: 'text', default: 'https://res.cloudinary.com/dn3mdxebf/image/upload/v1745636988/CalendarDots_l5tpxr.png', label: 'Calendar Icon', group: 'menuIcons' },
+            menuIcon_contacts: { type: 'text', default: 'https://res.cloudinary.com/dn3mdxebf/image/upload/v1745636988/IdentificationCard_aq9t7m.png', label: 'Contacts Icon', group: 'menuIcons' },
+            menuIcon_opportunities: { type: 'text', default: 'https://res.cloudinary.com/dn3mdxebf/image/upload/v1745636988/HandCoins_hd3giq.png', label: 'Opportunities Icon', group: 'menuIcons' },
+            menuIcon_payments: { type: 'text', default: 'https://res.cloudinary.com/dn3mdxebf/image/upload/v1745636989/CurrencyDollarSimple_p2lp03.png', label: 'Payments Icon', group: 'menuIcons' },
+            menuIcon_aiAgents: { type: 'text', default: 'https://res.cloudinary.com/dn3mdxebf/image/upload/v1745638645/AI_Agents_b9zrtr.png', label: 'AI Agents Icon', group: 'menuIcons' },
+            menuIcon_marketing: { type: 'text', default: 'https://res.cloudinary.com/dn3mdxebf/image/upload/v1745636989/Megaphone_ywe4yq.png', label: 'Marketing Icon', group: 'menuIcons' },
+            menuIcon_automations: { type: 'text', default: 'https://res.cloudinary.com/dn3mdxebf/image/upload/v1745636987/GearFine_muf3ps.png', label: 'Automations Icon', group: 'menuIcons' },
+            menuIcon_sites: { type: 'text', default: 'https://res.cloudinary.com/dn3mdxebf/image/upload/v1745636987/Browser_jbi5vh.png', label: 'Sites Icon', group: 'menuIcons' },
+            menuIcon_memberships: { type: 'text', default: 'https://res.cloudinary.com/dn3mdxebf/image/upload/v1745636988/Certificate_iyrcno.png', label: 'Memberships Icon', group: 'menuIcons' },
+            menuIcon_mediaStorage: { type: 'text', default: 'https://res.cloudinary.com/dn3mdxebf/image/upload/v1745636989/ImagesSquare_wghzea.png', label: 'Media Storage Icon', group: 'menuIcons' },
+            menuIcon_reputation: { type: 'text', default: 'https://res.cloudinary.com/dn3mdxebf/image/upload/v1745636989/ListStar_swgiix.png', label: 'Reputation Icon', group: 'menuIcons' },
+            menuIcon_reporting: { type: 'text', default: 'https://res.cloudinary.com/dn3mdxebf/image/upload/v1745636990/ChartBar_vpzouh.png', label: 'Reporting Icon', group: 'menuIcons' },
+            menuIcon_appMarketplace: { type: 'text', default: 'https://res.cloudinary.com/dn3mdxebf/image/upload/v1745636990/SquaresFour_tdk36i.png', label: 'App Marketplace Icon', group: 'menuIcons' },
+            menuIcon_mobileApp: { type: 'text', default: 'https://res.cloudinary.com/dn3mdxebf/image/upload/v1745636988/DeviceMobileCamera_q526gh.png', label: 'Mobile App Icon', group: 'menuIcons' },
+            menuIcon_settings: { type: 'text', default: 'https://res.cloudinary.com/dn3mdxebf/image/upload/v1745636990/ToggleRight_k50xms.png', label: 'Settings Icon', group: 'menuIcons' },
+            
+            icon_dialer: { type: 'text', default: 'https://res.cloudinary.com/dn3mdxebf/image/upload/v1745636989/Phone_jnm2yw.png', label: 'Dialer Icon', group: 'menuIcons' },
+            icon_activitie: { type: 'text', default: 'https://res.cloudinary.com/dn3mdxebf/image/upload/v1745636988/Bell_cczvh7.png', label: 'Activities Icon', group: 'menuIcons' },
+            icon_help: { type: 'text', default: 'https://res.cloudinary.com/dn3mdxebf/image/upload/v1745636990/Question_sh2vk0.png', label: 'Help Icon', group: 'menuIcons' },
+            icon_canny_logs: { type: 'text', default: 'https://res.cloudinary.com/dn3mdxebf/image/upload/v1745636987/GearSix_blhogp.png', label: 'Canny Logs Icon', group: 'menuIcons' },
+        };
+        
+        const cssOutputTextarea = document.getElementById('cssOutput');
+        const jsOutputTextarea = document.getElementById('jsOutput');
+        
+        // --- UI Initialization ---
+        function initializeUI() {
+            const containers = {
+                brandColors: document.querySelector('#brandColors'),
+                bgColors: document.querySelector('#bgColors'),
+                textColors: document.querySelector('#textColors'),
+                menuText: document.querySelector('#menuText'),
+                menuIcons: document.querySelector('#menuIcons'),
+            };
+
+            for (const key in THEME_CONFIG) {
+                const config = THEME_CONFIG[key];
+                const inputGroup = document.createElement('div');
+                inputGroup.className = 'control-group';
+                
+                const label = document.createElement('label');
+                label.htmlFor = key;
+                label.textContent = config.label;
+                
+                const input = document.createElement('input');
+                input.type = config.type;
+                input.id = key;
+                input.value = config.default;
+                
+                inputGroup.appendChild(label);
+                inputGroup.appendChild(input);
+                
+                if (containers[config.group]) {
+                    containers[config.group].appendChild(inputGroup);
+                }
+
+                input.addEventListener('input', generateCSS);
+            }
+            updateScriptOptions();
+        }
+
+        // --- Core Functions ---
+        function generateCSS() {
+            const baseThemeUrl = `https://cdn.jsdelivr.net/gh/ghlstyle/d-theme@latest/ghlstyle-d-custom-theme.css`;
+            
+            const cssVarMap = {
+                brand_logo: '--brand-logo',
+                brand_primaryColor: '--brand-primary-color',
+                brand_secondaryColor: '--brand-secondary-color',
+                brand_accentColor: '--brand-acent-color',
+                bgColor_topbar: '--ghl-topbar-color',
+                bgColor_sidebar: '--ghl-sidebar-color',
+                bgColor_menuHover: '--menu-hover-color',
+                bgColor_menuActive: '--menu-active-color',
+                bgColor_bottomToggle: '--sidebar-bottom-toggle',
+                bgColor_cardHeader: '--ghl-widgets-color',
+                bgColor_cardBackground: '--ghl-widgets-bg-color',
+                textColor_topbar: '--ghl-topbar-text-color',
+                textColor_topbarIcon: '--ghl-topbar-icon-color',
+                textColor_menu: '--menu-text-color',
+                textColor_cardHeader: '--ghl-widgets-text-color',
+                textColor_cardIcon: '--ghl-widgets-icon-color',
+                textColor_dashboardIcon: '--ghl-dashboard-icon-color',
+            };
+
+            let rootVariables = '';
+            for (const key in THEME_CONFIG) {
+                const element = document.getElementById(key);
+                if (!element) continue;
+
+                let cssVarName = '';
+                let value = element.value;
+
+                if (cssVarMap[key]) {
+                    cssVarName = cssVarMap[key];
+                    if (key === 'brand_logo') value = `url(${value})`;
+                } else if (key.startsWith('menuText_')) {
+                    const name = key.substring(9).replace(/([A-Z])/g, ' $1').replace(/^./, (str) => str.toUpperCase()).replace(/\s/g, '-');
+                    cssVarName = `--${name}-Text`;
+                    value = `"${value}"`;
+                } else if (key.startsWith('menuIcon_')) {
+                    let name = key.substring(9).replace(/([A-Z])/g, '-$1').toLowerCase();
+                    if (name === 'calendar') name = 'calendars'; // Handle special case
+                    if (name === 'ai-agents') name = 'ai-agents';
+                    if (name === 'app-marketplace') name = 'app-marketplace';
+                    if (name === 'mobile-app') name = 'mobile-app';
+                    if (name === 'launch-pad') name = 'launch-pad';
+                    cssVarName = `--${name}-icon`;
+                    value = `url(${value})`;
+                } else if (key.startsWith('icon_')) {
+                    cssVarName = `--${key.replace('_', '-')}`;
+                    value = `url(${value})`;
+                }
+
+                if (cssVarName) {
+                    rootVariables += `    ${cssVarName}: ${value};\n`;
+                }
+            }
+            
+            const finalCss = `
+@import url('${baseThemeUrl}');
+
+:root {
+${rootVariables}
+}
+`;
+            cssOutputTextarea.value = finalCss.trim();
+        }
+        
+        function applyConfig(config) {
+            for (const key in config) {
+                const element = document.getElementById(key);
+                if (element && typeof config[key] !== 'undefined') {
+                    element.value = config[key];
+                }
+            }
+            generateCSS();
+        }
+        
+        function exportConfig() { 
+             const config = {};
+            for (const key in THEME_CONFIG) {
+                const element = document.getElementById(key);
+                if (element) {
+                    config[key] = document.getElementById(key)?.value;
+                }
+            }
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(config, null, 2));
+            const dl = document.createElement('a');
+            dl.setAttribute("href", dataStr);
+            dl.setAttribute("download", "theme-config.json");
+            document.body.appendChild(dl);
+            dl.click();
+            dl.remove();
+        }
+
+        function importConfig(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                try {
+                    const config = JSON.parse(e.target.result);
+                    applyConfig(config);
+                    showModalMessage('Success', 'Theme configuration loaded successfully!');
+                } catch (error) {
+                    showModalMessage('Error', 'Could not parse the JSON file.');
+                }
+            };
+            reader.readAsText(file);
+        }
+
+        function copyToClipboard(elementId, button) {
+            const textarea = document.getElementById(elementId);
+            textarea.select();
+            try {
+                document.execCommand('copy');
+                const originalText = button.innerHTML;
+                button.innerHTML = 'Copied!';
+                setTimeout(() => { button.innerHTML = originalText; }, 2000);
+            } catch (err) {
+                showModalMessage('Error', 'Failed to copy. Please copy it manually.');
+            }
+        }
+
+        async function generateThemeWithAI() {
+            const textPrompt = document.getElementById('aiPrompt').value;
+            const urlPrompt = document.getElementById('aiUrl').value;
+
+            if (!textPrompt.trim() && !urlPrompt.trim()) {
+                showModalMessage('Input Required', 'Please describe a theme or provide a website URL to analyze.');
+                return;
+            }
+            showLoadingModal('Generating Theme...', 'The AI is analyzing and designing your theme.');
+
+            const properties = {};
+            for (const key in THEME_CONFIG) {
+                properties[key] = { type: "STRING" };
+            }
+            
+            const schema = { type: "OBJECT", properties: properties };
+            const fullPrompt = `You are a UI/UX designer creating a professional theme for a GoHighLevel CRM. Based on the user's request, generate a complete theme configuration as a JSON object conforming to the provided schema.
+
+            **User's Request:**
+            - **Website to Analyze (if provided):** ${urlPrompt || 'None'}
+            - **Refining Prompt (if provided):** ${textPrompt || 'None'}
+
+            **Your Task:**
+            1.  **Analyze and Synthesize:** If a URL is provided, analyze its branding, color palette, and overall style. Use this as the primary inspiration. If a text prompt is also provided, use it to modify or refine the style from the website. If only a text prompt is given, base the theme solely on that.
+            2.  **Generate a JSON object that perfectly matches the schema.** Do not include any extra text or explanations outside of the JSON object.`;
+
+            try {
+                const payload = {
+                    contents: [{ role: "user", parts: [{ text: fullPrompt }] }],
+                    generationConfig: { responseMimeType: "application/json", responseSchema: schema },
+                };
+                const apiKey = "";
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${AIzaSyClym2LcaeAdShpm1IisxL6c6cCC54FbmA}`;
+                const response = await fetch(apiUrl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+
+                if (!response.ok) throw new Error(`API request failed: ${response.status}`);
+                const result = await response.json();
+
+                if (result.candidates?.length > 0) {
+                    const generatedConfig = JSON.parse(result.candidates[0].content.parts[0].text);
+                    applyConfig(generatedConfig);
+                    showModalMessage('Success!', 'Your AI-generated theme has been applied.');
+                } else {
+                    throw new Error("The AI did not return a valid configuration.");
+                }
+            } catch (error) {
+                showModalMessage('Generation Failed', `An error occurred: ${error.message}`);
+            }
+        }
+
+        function updateScriptOptions() {
+            const scriptType = document.getElementById('scriptType').value;
+            let optionsHtml = '';
+            if (scriptType === 'welcomePopup') {
+                optionsHtml = `<div class="control-group"><label for="popupMessage">Popup Message</label><textarea id="popupMessage" rows="3" placeholder="e.g., Welcome back! Let's have a great day."></textarea></div>`;
+            } else if (scriptType === 'customButton') {
+                optionsHtml = `<div class="control-group"><label for="buttonText">Button Text</label><input type="text" id="buttonText" placeholder="e.g., Training Portal"></div>
+                               <div class="control-group mt-2"><label for="buttonUrl">Button URL</label><input type="text" id="buttonUrl" placeholder="https://your-url.com"></div>`;
+            } else if (scriptType === 'hideMenuItems') {
+                optionsHtml = `<div class="control-group"><label for="itemsToHide">Menu Items to Hide (comma-separated)</label><input type="text" id="itemsToHide" placeholder="e.g., Payments, Sites, Reputation"></div>`;
+            } else if (scriptType === 'fbPixel') {
+                optionsHtml = `<div class="control-group"><label for="pixelId">Facebook Pixel ID</label><input type="text" id="pixelId" placeholder="e.g., 123456789012345"></div>`;
+            } else if (scriptType === 'liveChat') {
+                optionsHtml = `<div class="control-group"><label for="widgetCode">Live Chat Widget Code</label><textarea id="widgetCode" rows="4" placeholder="Paste the full embed code from Tawk.to, Crisp, etc."></textarea></div>`;
+            } else if (scriptType === 'exitIntent') {
+                optionsHtml = `<div class="control-group"><label for="exitHeadline">Popup Headline</label><input type="text" id="exitHeadline" placeholder="e.g., Don't Leave Just Yet!"></div>
+                               <div class="control-group mt-2"><label for="exitMessage">Popup Message</label><textarea id="exitMessage" rows="2" placeholder="e.g., Get 10% off your first purchase."></textarea></div>
+                               <div class="control-group mt-2"><label for="exitButtonText">Button Text</label><input type="text" id="exitButtonText" placeholder="e.g., Claim My Discount"></div>
+                               <div class="control-group mt-2"><label for="exitButtonUrl">Button URL</label><input type="text" id="exitButtonUrl" placeholder="https://your-offer-url.com"></div>`;
+            }
+            document.getElementById('scriptOptions').innerHTML = optionsHtml;
+        }
+
+        async function generateScriptWithAI() {
+            const scriptType = document.getElementById('scriptType').value;
+            let userInputs = {};
+            let promptDetails = '';
+
+            if (scriptType === 'welcomePopup') {
+                userInputs.message = document.getElementById('popupMessage').value;
+                if (!userInputs.message) { showModalMessage('Input Required', 'Please enter a message for the popup.'); return; }
+                promptDetails = `Create a welcome popup that appears once per day. The popup should contain the message: "${userInputs.message}".`;
+            } else if (scriptType === 'customButton') {
+                userInputs.text = document.getElementById('buttonText').value;
+                userInputs.url = document.getElementById('buttonUrl').value;
+                if (!userInputs.text || !userInputs.url) { showModalMessage('Input Required', 'Please enter both button text and a URL.'); return; }
+                promptDetails = `Add a new button to the main sidebar navigation. The button text should be "${userInputs.text}" and it should link to "${userInputs.url}" in a new tab.`;
+            } else if (scriptType === 'hideMenuItems') {
+                userInputs.items = document.getElementById('itemsToHide').value;
+                if (!userInputs.items) { showModalMessage('Input Required', 'Please list the menu items to hide.'); return; }
+                promptDetails = `Hide the following menu items from the sidebar: ${userInputs.items}. The script should be robust enough to handle cases where items might not be present.`;
+            } else if (scriptType === 'fbPixel') {
+                userInputs.id = document.getElementById('pixelId').value;
+                if (!userInputs.id) { showModalMessage('Input Required', 'Please enter your Facebook Pixel ID.'); return; }
+                promptDetails = `Inject the standard Facebook Pixel tracking code into the page. Use the Pixel ID: ${userInputs.id}. The script should include the base code and fire a standard 'PageView' event.`;
+            } else if (scriptType === 'liveChat') {
+                userInputs.code = document.getElementById('widgetCode').value;
+                if (!userInputs.code) { showModalMessage('Input Required', 'Please paste your live chat widget code.'); return; }
+                promptDetails = `Safely inject the following third-party live chat widget script into the body of the page: ${userInputs.code}`;
+            } else if (scriptType === 'exitIntent') {
+                userInputs.headline = document.getElementById('exitHeadline').value;
+                userInputs.message = document.getElementById('exitMessage').value;
+                userInputs.buttonText = document.getElementById('exitButtonText').value;
+                userInputs.buttonUrl = document.getElementById('exitButtonUrl').value;
+                if (!userInputs.headline || !userInputs.message || !userInputs.buttonText || !userInputs.buttonUrl) { showModalMessage('Input Required', 'Please fill out all fields for the exit-intent popup.'); return; }
+                promptDetails = `Create an exit-intent popup. It should trigger when the user's mouse leaves the top of the viewport. The popup should appear only once per session. It needs a headline: "${userInputs.headline}", a message: "${userInputs.message}", and a button with text "${userInputs.buttonText}" that links to "${userInputs.buttonUrl}".`;
+            }
+            
+            showLoadingModal('Generating Script...', 'The AI is writing your JavaScript code.');
+
+            const fullPrompt = `You are an expert JavaScript developer specializing in GoHighLevel (GHL) customizations. Your task is to generate a clean, robust, and well-commented JavaScript snippet for GHL's Custom JS section.
+            
+            **CRITICAL INSTRUCTIONS:**
+            1.  **Use a 'run when ready' pattern:** The script must wait for GHL's UI to be fully loaded before executing. Use a \`MutationObserver\` or a repeating \`setInterval\` with a timeout to check for the existence of key elements before running the main logic.
+            2.  **Do NOT use \`alert()\`, \`confirm()\`, or \`prompt()\`:** For popups, create a styled modal div and inject it into the DOM.
+            3.  **Be specific with selectors:** Use GHL's specific data-testid attributes (e.g., \`[data-testid="sidebar-v2-Sites"]\`) when possible, as they are more stable than class names.
+            4.  **Wrap in an IIFE:** Enclose the entire script in an Immediately Invoked Function Expression \`(function() { ... })();\` to avoid polluting the global scope.
+            5.  **Add extensive comments:** Explain what each part of the code does.
+
+            **User Request:**
+            ${promptDetails}
+
+            Generate only the JavaScript code.`;
+
+            try {
+                const payload = { contents: [{ role: "user", parts: [{ text: fullPrompt }] }] };
+                const apiKey = "";
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+                const response = await fetch(apiUrl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+                if (!response.ok) throw new Error(`API request failed: ${response.status}`);
+                const result = await response.json();
+
+                if (result.candidates?.length > 0) {
+                    let scriptText = result.candidates[0].content.parts[0].text;
+                    scriptText = scriptText.replace(/^```javascript\n/, '').replace(/\n```$/, '');
+                    jsOutputTextarea.value = scriptText;
+                    showModalMessage('Success!', 'Your AI-generated script is ready.');
+                } else {
+                    throw new Error("The AI did not return a valid script.");
+                }
+            } catch (error) {
+                showModalMessage('Generation Failed', `An error occurred: ${error.message}`);
+            }
+        }
+        
+        function showLoadingModal(title, message) {
+            const modal = document.getElementById('messageModal');
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalMessage').textContent = message;
+            document.getElementById('modalSpinner').style.display = 'block';
+            document.getElementById('modalCloseButton').style.display = 'none';
+            modal.classList.remove('hidden');
+        }
+        function showModalMessage(title, message) {
+            const modal = document.getElementById('messageModal');
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalMessage').textContent = message;
+            document.getElementById('modalSpinner').style.display = 'none';
+            document.getElementById('modalCloseButton').style.display = 'block';
+            modal.classList.remove('hidden');
+        }
+        const modal = document.getElementById('messageModal');
+        const modalCloseButton = document.getElementById('modalCloseButton');
+        modalCloseButton.addEventListener('click', () => modal.classList.add('hidden'));
+
+        // --- Event Listeners ---
+        document.getElementById('generateThemeButton').addEventListener('click', generateThemeWithAI);
+        document.getElementById('generateScriptButton').addEventListener('click', generateScriptWithAI);
+        document.getElementById('scriptType').addEventListener('change', updateScriptOptions);
+        document.getElementById('copyCssButton').addEventListener('click', (e) => copyToClipboard('cssOutput', e.currentTarget));
+        document.getElementById('copyJsButton').addEventListener('click', (e) => copyToClipboard('jsOutput', e.currentTarget));
+        document.getElementById('exportJsonButton').addEventListener('click', exportConfig);
+        document.getElementById('importJsonButton').addEventListener('click', () => document.getElementById('jsonFileInput').click());
+        document.getElementById('jsonFileInput').addEventListener('change', importConfig);
+        
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                tabContents.forEach(content => content.classList.remove('active'));
+                document.getElementById(button.dataset.tab).classList.add('active');
+            });
+        });
+
+        // --- Initial Execution ---
+        initializeUI();
+        generateCSS();
+    });
+    </script>
+</body>
+</html>
