@@ -45,12 +45,12 @@ span,
 a,
 button {
 	font-family: var(--body-font) !important;
- /* Enforces body font */;
+ /* Enforces body font */;
 }
 
 .hl-card-content div {
 	font-family: var(--body-font) !important;
-  	font-weight: 500 !important;
+  	font-weight: 500 !important;
 }
 
 /* ================= SIDEBAR & TOPBAR SETTING ================ */
@@ -112,7 +112,7 @@ html body .v2-open #sidebar-v2,
 }
 
 .sidebar-v2-location #sidebar-v2 .hl_nav-header-without-footer > nav .default-bg-color {
-    background: var(--ghl-sidebar-color) !important;
+    background: var(--ghl-sidebar-color) !important;
 }
 
 /* ================= SIDEBAR LINK STATES ================ */
@@ -125,14 +125,14 @@ html body .v2-open #sidebar-v2,
 /* Sidebar link hover state */
 #sidebar-v2 nav a:hover {
 	background-color: color-mix(in srgb, var(--menu-hover-color), transparent 0%) !important;
-  /*background-image: var(--sidebar-menu-bg-gradient) !important;*/
+  /*background-image: var(--sidebar-menu-bg-gradient) !important;*/
 	border-width: 0px !important;
 }
 
 /* Sidebar link active state */
 #sidebar-v2 nav a.active {
 	background-color: color-mix(in srgb, var(--menu-active-color), transparent 0%) !important;
-  /*background-image: var(--sidebar-menu-bg-gradient) !important;*/
+  /*background-image: var(--sidebar-menu-bg-gradient) !important;*/
 	border-width: 0px !important;
 }
 
@@ -389,7 +389,7 @@ html body .v2-open #sidebar-v2,
 }
 
 [id="sb_AI Agents"]::after {
-	content: var(--AI-Agents-Text);
+	content: var(--Ai-Agents-Text);
 }
 
 #sb_email-marketing::after {
@@ -451,7 +451,7 @@ html body .v2-open #sidebar-v2,
 .v2-collapse #sidebar-v2 nav a#sb_app-marketplace,
 .v2-collapse #sidebar-v2 nav a#sb_location-mobile-app,
 .v2-collapse #sidebar-v2 nav a#sb_settings {
- display: inline-block !important;
+ display: inline-block !important;
 }
 
 /* Hide text when menu is collapsed */
@@ -548,7 +548,7 @@ html body .v2-open #sidebar-v2,
 /* Top nav */
 .hl_header > .topmenu-nav {
 	background: var(--top-nav-bg-color) !important;
-  /*background-image: var(--top-nav-bg-gradient) !important;*/;
+  /*background-image: var(--top-nav-bg-gradient) !important;*/;
 }
 
 /* Top nav container */
@@ -590,9 +590,9 @@ html body .v2-open #sidebar-v2,
 
 /* Tabs active link override */
 nav[aria-label="Tabs"]
-  a[style="color:rgb(56,160,219);padding-left:10px;padding-right:10px;border-color:rgb(56,160,219);"],
+  a[style="color:rgb(56,160,219);padding-left:10px;padding-right:10px;border-color:rgb(56,160,219);"],
 nav[aria-label="Tabs"]
-  a[style="color:rgb(56,160,219);border-color:rgb(56,160,219);padding-left:10px;padding-right:10px;"] {
+  a[style="color:rgb(56,160,219);border-color:rgb(56,160,219);padding-left:10px;padding-right:10px;"] {
 	color: var(--brand-primary-color) !important;
 	border-color: var(--brand-primary-color) !important;
 }
@@ -648,7 +648,7 @@ div.topmenu-navtitle {
 /* Power Dialer Icon */
 
 #template-power-dialer button > svg{
- Display:none !important;
+ Display:none !important;
 }
 
 #template-power-dialer button::before {
@@ -666,7 +666,7 @@ div.topmenu-navtitle {
 /* Notification Icon */
 
 #recent_activities-toggle i {
-  display: none !important;
+  display: none !important;
 }
 
 #recent_activities-toggle::before {
@@ -684,7 +684,7 @@ div.topmenu-navtitle {
 /* Help Icon */
 
 #hl_header--help-icon i {
-  display: none !important;
+  display: none !important;
 }
 
 #hl_header--help-icon::before {
@@ -702,7 +702,7 @@ div.topmenu-navtitle {
 /* Canny Icon */
 
 #canny_logs-toggle i {
-  display: none !important;
+  display: none !important;
 }
 
 #canny_logs-toggle::before {
@@ -778,7 +778,7 @@ div.topmenu-navtitle {
 	border-top-left-radius: 8px !important;
 	border-top-right-radius: 8px !important;
 	background: var(--ghl-widgets-color) !important;
-  /* background-image: var(--card-header-bg-gradient) !important; */;
+  /* background-image: var(--card-header-bg-gradient) !important; */;
 }
 
 /* Card title text */
@@ -839,9 +839,9 @@ div.topmenu-navtitle {
 }
 
 /* .n-input {
-    box-shadow: 0 0px 0px var(--ghlstyle-transparent) !important;
-    border-radius: 5px !important;
-    color: red !important;
+    box-shadow: 0 0px 0px var(--ghlstyle-transparent) !important;
+    border-radius: 5px !important;
+    color: red !important;
 } */
 
 .n-base-selection {
@@ -851,7 +851,7 @@ div.topmenu-navtitle {
 }
 
 .hl-card-header .n-base-selection .n-base-selection-overlay .n-base-selection-overlay__wrapper, .hl-card-header .n-base-selection-input__content, .hl-card-header .n-base-selection .n-base-suffix .n-base-suffix__arrow {
-    color: color-mix(in srgb, var(--ghl-widgets-text-color), transparent 30%) !important;
+    color: color-mix(in srgb, var(--ghl-widgets-text-color), transparent 30%) !important;
 }
 
 /* ================= LOCATION SWITCHER STYLES ================= */
@@ -889,25 +889,25 @@ div.topmenu-navtitle {
 
 /* Location icon stroke */
 .sidebar-v2-location
-  #sidebar-v2
-  #location-switcher-sidbar-v2
-  .hl_location_icon
-  g
-  path {
+  #sidebar-v2
+  #location-switcher-sidbar-v2
+  .hl_location_icon
+  g
+  path {
 	stroke: var(--white-color) !important;
 	stroke-opacity: 0.8 !important;
 }
 
 /* Caret icon color */
 #sidebar-v2
-  #location-switcher-sidbar-v2
-  .switcher-caret-holder
-  .fa-angle-up:before,
+  #location-switcher-sidbar-v2
+  .switcher-caret-holder
+  .fa-angle-up:before,
 .sidebar-v2-location
-  #sidebar-v2
-  #location-switcher-sidbar-v2
-  .switcher-caret-holder
-  .fa-angle-down:before {
+  #sidebar-v2
+  #location-switcher-sidbar-v2
+  .switcher-caret-holder
+  .fa-angle-down:before {
 	color: var(--white-color) !important;
 	opacity: 1 !important;
 }
@@ -919,15 +919,15 @@ div.topmenu-navtitle {
 }
 
 #location-dashboard #location-dashboard-header .location-dashboard_header #location_dashboard-datepicker-dashboard_header_range .n-input-wrapper .n-input__input .n-input__input-el{
-    color: var(--ghl-dashboard-icon-color) !important;
+    color: var(--ghl-dashboard-icon-color) !important;
 }
 
 #location-dashboard #location-dashboard-header .location-dashboard_header .w-full .cursor-pointer {
-    background: var(--brand-secondary-color) !important;
+    background: var(--brand-secondary-color) !important;
 }
 
 #location-dashboard #location-dashboard-header .location-dashboard_header .w-full .cursor-pointer > svg {
-    color: var(--ghl-dashboard-icon-color) !important;
+    color: var(--ghl-dashboard-icon-color) !important;
 }
 
 /* ================= BACK BUTTON, SEARCH, QUICK ACTIONS & DIVIDER ================= */
@@ -935,7 +935,7 @@ div.topmenu-navtitle {
 /* Global search button style */
 #globalSearchOpener {
 	margin-right: auto !important;
-  margin-left: auto !important;
+  margin-left: auto !important;
 	background-color: color-mix(in srgb, var(--brand-acent-color), transparent 50%) !important;
 }
 
@@ -944,7 +944,7 @@ body #quickActions {
 	border-radius: 50px !important;
 	background-color: color-mix(in srgb, var(--brand-acent-color), transparent 50%) !important;
 	margin-right: auto !important;
-  margin-left: auto !important;
+  margin-left: auto !important;
 }
 
 
@@ -978,12 +978,12 @@ body #quickActions {
 
 /* Divider label text */
 .sidebar-v2-location
-  #sidebar-v2
-  .hl_nav-header-without-footer
-  nav
-  a.divider
-  p
-  span {
+  #sidebar-v2
+  .hl_nav-header-without-footer
+  nav
+  a.divider
+  p
+  span {
 	color: var(--dark-color) !important;
 	background: transparent !important;
 	padding: 0px !important;
@@ -1088,9 +1088,9 @@ body .focus\:ring-curious-blue-500:focus {
 
 /* Primary color override for active tabs */
 nav
-  a[style="color: rgb(56, 160, 219); border-color: rgb(56, 160, 219); padding-left: 10px; padding-right: 10px;"],
+  a[style="color: rgb(56, 160, 219); border-color: rgb(56, 160, 219); padding-left: 10px; padding-right: 10px;"],
 nav
-  a[style="color: rgb(56, 160, 219); padding-left: 10px; padding-right: 10px; border-color: rgb(56, 160, 219);"] {
+  a[style="color: rgb(56, 160, 219); padding-left: 10px; padding-right: 10px; border-color: rgb(56, 160, 219);"] {
 	color: var(--brand-primary-color) !important;
 	border-color: var(--brand-primary-color) !important;
 }
@@ -1126,7 +1126,7 @@ body[data-theme="default-dark-v1"] .n-button--primary-type, #location-dashboard-
 }
 
 .sidebar-v2-location #sidebar-v2 .hl_nav-header-without-footer #sb_calendars:before{
-  all: unset !important;
+  all: unset !important;
 }
 
 /* Hide extra svg icon */
@@ -1148,5 +1148,5 @@ body[data-theme="default-dark-v1"] .n-button--primary-type, #location-dashboard-
 #sb_app-marketplace svg,
 #sb_location-mobile-app svg,
 #sb_settings svg {
- display: none;
+ display: none;
 }
