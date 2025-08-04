@@ -45,12 +45,12 @@
 .__USER__ a,
 .__USER__ button {
 	font-family: var(--body-font) !important;
- /* Enforces body font */;
+ /* Enforces body font */;
 }
 
 .__USER__ .hl-card-content div {
 	font-family: var(--body-font) !important;
-  	font-weight: 500 !important;
+  	font-weight: 500 !important;
 }
 
 /* ================= SIDEBAR & TOPBAR SETTING ================ */
@@ -112,7 +112,7 @@ html body .__USER__ .v2-open #sidebar-v2,
 }
 
 .__USER__.sidebar-v2-location #sidebar-v2 .hl_nav-header-without-footer > nav .default-bg-color {
-    background: var(--ghl-sidebar-color) !important;
+    background: var(--ghl-sidebar-color) !important;
 }
 
 /* ================= SIDEBAR LINK STATES ================ */
@@ -124,13 +124,13 @@ html body .__USER__ .v2-open #sidebar-v2,
 
 /* Sidebar link hover state */
 .__USER__ #sidebar-v2 nav a:hover {
-	background:  var(--menu-active-color) !important;
+	background:  var(--menu-active-color) !important;
 	border-width: 0px !important;
 }
 
 /* Sidebar link active state */
 .__USER__ #sidebar-v2 nav a.active {
-	background:  var(--menu-active-color) !important;
+	background:  var(--menu-active-color) !important;
 	border-width: 0px !important;
 }
 
@@ -387,7 +387,7 @@ html body .__USER__ .v2-open #sidebar-v2,
 }
 
 .__USER__ [id="sb_AI Agents"]::after {
-	content: var(--AI-Agents-Text);
+	content: var(--Ai-Agents-Text);
 }
 
 .__USER__ #sb_email-marketing::after {
@@ -449,7 +449,7 @@ html body .__USER__ .v2-open #sidebar-v2,
 .__USER__.v2-collapse #sidebar-v2 nav a#sb_app-marketplace,
 .__USER__.v2-collapse #sidebar-v2 nav a#sb_location-mobile-app,
 .__USER__.v2-collapse #sidebar-v2 nav a#sb_settings {
- display: inline-block !important;
+ display: inline-block !important;
 }
 
 /* Hide text when menu is collapsed */
@@ -546,7 +546,7 @@ html body .__USER__ .v2-open #sidebar-v2,
 /* Top nav */
 .__USER__ .hl_header > .topmenu-nav {
 	background: var(--top-nav-bg-color) !important;
-  /*background-image: var(--top-nav-bg-gradient) !important;*/;
+  /*background-image: var(--top-nav-bg-gradient) !important;*/;
 }
 
 /* Top nav container */
@@ -588,9 +588,9 @@ html body .__USER__ .v2-open #sidebar-v2,
 
 /* Tabs active link override */
 .__USER__ nav[aria-label="Tabs"]
-  a[style="color:rgb(56,160,219);padding-left:10px;padding-right:10px;border-color:rgb(56,160,219);"],
+  a[style="color:rgb(56,160,219);padding-left:10px;padding-right:10px;border-color:rgb(56,160,219);"],
 .__USER__ nav[aria-label="Tabs"]
-  a[style="color:rgb(56,160,219);border-color:rgb(56,160,219);padding-left:10px;padding-right:10px;"] {
+  a[style="color:rgb(56,160,219);border-color:rgb(56,160,219);padding-left:10px;padding-right:10px;"] {
 	color: var(--brand-primary-color) !important;
 	border-color: var(--brand-primary-color) !important;
 }
@@ -646,7 +646,7 @@ html body .__USER__ .v2-open #sidebar-v2,
 /* Power Dialer Icon */
 
 .__USER__ #template-power-dialer button > svg{
- Display:none !important;
+ Display:none !important;
 }
 
 .__USER__ #template-power-dialer button::before {
@@ -664,7 +664,7 @@ html body .__USER__ .v2-open #sidebar-v2,
 /* Notification Icon */
 
 .__USER__ #recent_activities-toggle i {
-  display: none !important;
+  display: none !important;
 }
 
 .__USER__ #recent_activities-toggle::before {
@@ -682,7 +682,7 @@ html body .__USER__ .v2-open #sidebar-v2,
 /* Help Icon */
 
 .__USER__ #hl_header--help-icon i {
-  display: none !important;
+  display: none !important;
 }
 
 .__USER__ #hl_header--help-icon::before {
@@ -700,7 +700,7 @@ html body .__USER__ .v2-open #sidebar-v2,
 /* Canny Icon */
 
 .__USER__ #canny_logs-toggle i {
-  display: none !important;
+  display: none !important;
 }
 
 .__USER__ #canny_logs-toggle::before {
@@ -776,7 +776,7 @@ html body .__USER__ .v2-open #sidebar-v2,
 	border-top-left-radius: 8px !important;
 	border-top-right-radius: 8px !important;
 	background: var(--ghl-widgets-color) !important;
-  /* background-image: var(--card-header-bg-gradient) !important; */;
+  /* background-image: var(--card-header-bg-gradient) !important; */;
 }
 
 /* Card title text */
@@ -837,9 +837,9 @@ html body .__USER__ .v2-open #sidebar-v2,
 }
 
 /* .__USER__ .n-input {
-    box-shadow: 0 0px 0px var(--ghlstyle-transparent) !important;
-    border-radius: 5px !important;
-    color: red !important;
+    box-shadow: 0 0px 0px var(--ghlstyle-transparent) !important;
+    border-radius: 5px !important;
+    color: red !important;
 } */
 
 .__USER__ .n-base-selection {
@@ -849,7 +849,7 @@ html body .__USER__ .v2-open #sidebar-v2,
 }
 
 .__USER__ .hl-card-header .n-base-selection .n-base-selection-overlay .n-base-selection-overlay__wrapper, .__USER__ .hl-card-header .n-base-selection-input__content, .__USER__ .hl-card-header .n-base-selection .n-base-suffix .n-base-suffix__arrow {
-    color: color-mix(in srgb, var(--ghl-widgets-text-color), transparent 30%) !important;
+    color: color-mix(in srgb, var(--ghl-widgets-text-color), transparent 30%) !important;
 }
 
 /* ================= LOCATION SWITCHER STYLES ================= */
@@ -887,25 +887,25 @@ html body .__USER__ .v2-open #sidebar-v2,
 
 /* Location icon stroke */
 .__USER__ .sidebar-v2-location
-  #sidebar-v2
-  #location-switcher-sidbar-v2
-  .hl_location_icon
-  g
-  path {
+  #sidebar-v2
+  #location-switcher-sidbar-v2
+  .hl_location_icon
+  g
+  path {
 	stroke: var(--white-color) !important;
 	stroke-opacity: 0.8 !important;
 }
 
 /* Caret icon color */
 .__USER__ #sidebar-v2
-  #location-switcher-sidbar-v2
-  .switcher-caret-holder
-  .fa-angle-up:before,
+  #location-switcher-sidbar-v2
+  .switcher-caret-holder
+  .fa-angle-up:before,
 .__USER__ .sidebar-v2-location
-  #sidebar-v2
-  #location-switcher-sidbar-v2
-  .switcher-caret-holder
-  .fa-angle-down:before {
+  #sidebar-v2
+  #location-switcher-sidbar-v2
+  .switcher-caret-holder
+  .fa-angle-down:before {
 	color: var(--white-color) !important;
 	opacity: 1 !important;
 }
@@ -917,15 +917,15 @@ html body .__USER__ .v2-open #sidebar-v2,
 }
 
 .__USER__ #location-dashboard #location-dashboard-header .location-dashboard_header #location_dashboard-datepicker-dashboard_header_range .n-input-wrapper .n-input__input .n-input__input-el{
-    color: var(--ghl-dashboard-icon-color) !important;
+    color: var(--ghl-dashboard-icon-color) !important;
 }
 
 .__USER__ #location-dashboard #location-dashboard-header .location-dashboard_header .w-full .cursor-pointer {
-    background: var(--brand-secondary-color) !important;
+    background: var(--brand-secondary-color) !important;
 }
 
 .__USER__ #location-dashboard #location-dashboard-header .location-dashboard_header .w-full .cursor-pointer > svg {
-    color: var(--ghl-dashboard-icon-color) !important;
+    color: var(--ghl-dashboard-icon-color) !important;
 }
 
 /* ================= BACK BUTTON, SEARCH, QUICK ACTIONS & DIVIDER ================= */
@@ -933,7 +933,7 @@ html body .__USER__ .v2-open #sidebar-v2,
 /* Global search button style */
 .__USER__ #globalSearchOpener {
 	margin-right: auto !important;
-  margin-left: auto !important;
+  margin-left: auto !important;
 	background-color: color-mix(in srgb, var(--brand-acent-color), transparent 50%) !important;
 }
 
@@ -942,7 +942,7 @@ body .__USER__ #quickActions {
 	border-radius: 50px !important;
 	background-color: color-mix(in srgb, var(--brand-acent-color), transparent 50%) !important;
 	margin-right: auto !important;
-  margin-left: auto !important;
+  margin-left: auto !important;
 }
 
 
@@ -976,12 +976,12 @@ body .__USER__ #quickActions {
 
 /* Divider label text */
 .__USER__ .sidebar-v2-location
-  #sidebar-v2
-  .hl_nav-header-without-footer
-  nav
-  a.divider
-  p
-  span {
+  #sidebar-v2
+  .hl_nav-header-without-footer
+  nav
+  a.divider
+  p
+  span {
 	color: var(--dark-color) !important;
 	background: transparent !important;
 	padding: 0px !important;
@@ -997,7 +997,7 @@ body .__USER__ #quickActions {
 .__USER__.sidebar-v2-location #sidebar-v2 #backButtonv2,
 .__USER__.sidebar-v2-agency #sidebar-v2 #backButtonv2 {
 	background: var(--menu-active-color) !important;
-    	color: var(--menu-text-color) !important;
+    	color: var(--menu-text-color) !important;
 }
 
 .__USER__.sidebar-v2-location #sidebar-v2 #backButtonv2 + .menu-title,
@@ -1086,9 +1086,9 @@ body .__USER__ .focus\:ring-curious-blue-500:focus {
 
 /* Primary color override for active tabs */
 .__USER__ nav
-  a[style="color: rgb(56, 160, 219); border-color: rgb(56, 160, 219); padding-left: 10px; padding-right: 10px;"],
+  a[style="color: rgb(56, 160, 219); border-color: rgb(56, 160, 219); padding-left: 10px; padding-right: 10px;"],
 .__USER__ nav
-  a[style="color: rgb(56, 160, 219); padding-left: 10px; padding-right: 10px; border-color: rgb(56, 160, 219);"] {
+  a[style="color: rgb(56, 160, 219); padding-left: 10px; padding-right: 10px; border-color: rgb(56, 160, 219);"] {
 	color: var(--brand-primary-color) !important;
 	border-color: var(--brand-primary-color) !important;
 }
@@ -1124,7 +1124,7 @@ body[data-theme="default-dark-v1"] .__USER__ .n-button--primary-type, .__USER__ 
 }
 
 .__USER__.sidebar-v2-location #sidebar-v2 .hl_nav-header-without-footer #sb_calendars:before{
-  all: unset !important;
+  all: unset !important;
 }
 
 /* Hide extra svg icon */
@@ -1146,5 +1146,5 @@ body[data-theme="default-dark-v1"] .__USER__ .n-button--primary-type, .__USER__ 
 .__USER__ #sb_app-marketplace svg,
 .__USER__ #sb_location-mobile-app svg,
 .__USER__ #sb_settings svg {
- display: none;
+ display: none;
 }
