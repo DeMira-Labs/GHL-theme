@@ -1150,29 +1150,3 @@ body[data-theme="default-dark-v1"] .n-button--primary-type, #location-dashboard-
 #sb_settings svg {
  display: none;
 }
-
-/* ================= HEADER ICON FIXES V2 ================= */
-
-/* Reset background, padding, and sizing on header icon containers */
-#hl_header .hl_header--controls > div[id],
-#hl_header .hl_header--controls > div[id] > button {
-    background-color: transparent !important;
-    padding: 0 !important;
-    width: auto !important;
-    height: auto !important;
-    border: none !important;
-    box-shadow: none !important;
-}
-
-/* Ensure proper alignment for all header controls */
-#hl_header .hl_header--controls {
-    display: flex;
-    align-items: center;
-    gap: 12px; /* Adjust the gap between icons if you like */
-}
-
-/* Specific fix for the dialer icon's container */
-#hl_header #template-power-dialer {
-    display: flex;
-    align-items: center;
-}
